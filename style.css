@@ -150,6 +150,17 @@ p {
   margin-top: 0;
 }
 
+h1,
+h2,
+h3,
+.button,
+.filter,
+.project-body h3,
+.availability strong,
+.email-text {
+  overflow-wrap: anywhere;
+}
+
 h1 {
   max-width: 920px;
   margin-bottom: 22px;
@@ -1137,10 +1148,12 @@ h2 {
 
   .hero {
     min-height: auto;
+    align-items: start;
   }
 
   .hero-visual {
-    min-height: 700px;
+    min-height: 640px;
+    transform: none;
   }
 
   .hero-collage {
@@ -1184,7 +1197,8 @@ h2 {
   }
 
   .project-card,
-  .project-card.featured {
+  .project-card.featured,
+  .project-card.has-gallery {
     grid-column: span 6;
   }
 
@@ -1201,20 +1215,68 @@ h2 {
   .site-header {
     align-items: flex-start;
     flex-direction: column;
+    gap: 12px;
+    padding: 14px 16px;
+    position: relative;
   }
 
   .site-nav {
     width: 100%;
+    gap: 10px 14px;
     justify-content: flex-start;
+    font-size: 11px;
+    line-height: 1.35;
   }
 
   h1 {
-    font-size: clamp(44px, 16vw, 76px);
+    font-size: clamp(42px, 15vw, 68px);
+  }
+
+  h2 {
+    font-size: clamp(34px, 13vw, 56px);
+  }
+
+  .hero,
+  .profile,
+  .focus,
+  .archive,
+  .services,
+  .experience,
+  .contact {
+    padding-inline: 16px;
+  }
+
+  .hero {
+    padding-top: 36px;
+    gap: 26px;
+  }
+
+  .hero-text,
+  .profile-grid p,
+  .contact-lead {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  .button,
+  .filter {
+    min-height: 44px;
+  }
+
+  .hero-actions,
+  .contact-actions,
+  .filters {
+    align-items: stretch;
+  }
+
+  .hero-actions .button,
+  .contact-actions .button {
+    flex: 1 1 150px;
   }
 
   .hero-visual,
   .hero-visual > img {
-    min-height: 760px;
+    min-height: auto;
   }
 
   .hero-collage {
@@ -1222,47 +1284,67 @@ h2 {
     inset: auto;
     min-height: 0;
     padding: 10px;
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     grid-template-rows: none;
-    grid-auto-rows: minmax(150px, auto);
+    grid-auto-rows: minmax(130px, auto);
+    gap: 9px;
   }
 
-  .tile-minecraft,
+  .tile-minecraft {
+    grid-column: 1 / -1;
+    grid-row: auto;
+    min-height: 170px;
+  }
+
   .tile-morrowvale,
   .tile-code,
   .tile-apps,
-  .tile-pokev,
-  .tile-kiwi,
-  .tile-sound {
-    grid-column: 1;
+  .tile-pokev {
+    grid-column: 1 / -1;
     grid-row: auto;
   }
 
-  .tile-morrowvale,
-  .tile-apps,
-  .tile-pokev,
+  .tile-morrowvale {
+    min-height: 190px;
+  }
+
+  .tile-code {
+    min-height: 175px;
+  }
+
+  .tile-apps {
+    min-height: 125px;
+  }
+
+  .tile-pokev {
+    min-height: 165px;
+  }
+
   .tile-kiwi,
   .tile-sound {
-    min-height: 210px;
+    grid-column: auto;
+    grid-row: auto;
+    min-height: 160px;
   }
 
   .tile-minecraft strong {
-    font-size: clamp(52px, 19vw, 92px);
+    font-size: clamp(48px, 18vw, 78px);
   }
 
   .tile-code pre {
-    font-size: 12px;
+    font-size: 11px;
   }
 
   .project-card,
-  .project-card.featured {
+  .project-card.featured,
+  .project-card.has-gallery {
     grid-column: 1 / -1;
     min-height: 0;
   }
 
   .project-media,
   .project-media img {
-    min-height: 210px;
+    min-height: 220px;
   }
 
   .project-gallery {
@@ -1273,10 +1355,87 @@ h2 {
     grid-template-columns: 1fr;
   }
 
+  .section-heading {
+    align-items: start;
+    flex-direction: column;
+  }
+
+  .focus article,
+  .experience-list article {
+    min-height: 0;
+  }
+
+  .project-meta {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .project-tags {
+    gap: 6px;
+  }
+
+  .project-tags span,
+  .service-grid li {
+    font-size: 11px;
+  }
+
+  .availability {
+    box-shadow: 4px 4px 0 rgba(225, 45, 45, 0.34);
+  }
+
+  .email-copyline {
+    width: 100%;
+  }
+
   .dev-signature {
     right: 12px;
     bottom: 10px;
     max-width: 150px;
     text-align: right;
+  }
+}
+
+@media (max-width: 420px) {
+  .brand {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .site-nav {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .hero-collage {
+    grid-template-columns: 1fr;
+  }
+
+  .tile-kiwi,
+  .tile-sound {
+    grid-column: 1;
+  }
+
+  .filter {
+    flex: 1 1 calc(50% - 8px);
+  }
+
+  .project-body {
+    padding: 15px;
+  }
+
+  .project-media,
+  .project-media img {
+    min-height: 190px;
+  }
+
+  .mail-icon {
+    width: 30px;
+    height: 22px;
+  }
+
+  .email-copyline {
+    gap: 11px;
   }
 }
