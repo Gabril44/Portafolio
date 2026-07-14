@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>developed by leshuggah</title>
+    <meta
+      name="description"
+      content="Portfolio de Leshuggah: desarrollo webs, apps, juegos, Minecraft addons, sonido, musica y soporte tecnico para redes y servidores."
+    >
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="noise" aria-hidden="true"></div>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Inicio">
+        <span class="brand-mark">developed by</span>
+        <span class="brand-name">leshuggah</span>
+      </a>
+      <nav class="site-nav" aria-label="Secciones">
+        <a href="#archivo">Archivo</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#perfil">Perfil</a>
+        <a href="#experiencia">Experiencia</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">web / games / apps / sound / systems</p>
+          <h1 id="hero-title">Webs, juegos, apps y sonido.</h1>
+          <p class="hero-text">
+            Desarrollo sitios web, juegos, apps de escritorio y celular,
+            addons de Minecraft, piezas sonoras y soluciones tecnicas con foco en
+            logica limpia, identidad visual y ejecucion real.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#archivo">Ver proyectos</a>
+            <a class="button ghost" href="mailto:gabiaceved03232@gmail.com">Contactar</a>
+          </div>
+        </div>
+        <div class="hero-visual" aria-label="Collage visual del portfolio">
+          <div class="hero-collage">
+            <article class="collage-tile tile-minecraft">
+              <span>games</span>
+              <strong>Addons</strong>
+              <small>Minecraft / gameplay / sistemas jugables</small>
+            </article>
+
+            <figure class="collage-tile tile-image tile-morrowvale">
+              <img src="assets/morrowvale.png" alt="Proyecto Morrowvale para Minecraft Marketplace">
+              <figcaption>Morrowvale</figcaption>
+            </figure>
+
+            <article class="collage-tile tile-code">
+              <span>code / logic</span>
+              <pre><code>function leshuggah {
+if (idea.exists) then
+    idea.make_it_happen!
+end}</code></pre>
+            </article>
+
+            <article class="collage-tile tile-apps">
+              <span>apps reales</span>
+              <strong>Desktop</strong>
+              <strong>+ mobile</strong>
+              <small>gyms / spa / business tools</small>
+            </article>
+
+            <figure class="collage-tile tile-image tile-pokev">
+              <img src="assets/pokev-web.png" alt="Screenshot de Pokev TCG">
+              <figcaption>Web / storefront</figcaption>
+            </figure>
+
+            <figure class="collage-tile tile-image tile-kiwi">
+              <img src="assets/kiwi-blue-world.png" alt="Screenshot de KIWI Dark RPG">
+              <figcaption>Games</figcaption>
+            </figure>
+
+            <figure class="collage-tile tile-image tile-sound">
+              <img src="assets/producciones-sonoras-portada.jpg" alt="Portada de proyecto musical producido por Leshuggah">
+              <figcaption>Sound / music</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="ticker" aria-label="Identidad">
+        <span>developed by leshuggah</span>
+        <span>webs & apps</span>
+        <span>games & gameplay</span>
+        <span>minecraft addons</span>
+        <span>sound & music production</span>
+        <span>servers / networks</span>
+      </section>
+
+      <section class="archive" id="archivo" aria-labelledby="archive-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">proyectos</p>
+            <h2 id="archive-title">Proyectos.</h2>
+          </div>
+          <p class="section-note">
+            Filtro rapido por area: webs, apps, juegos, Minecraft, The Sandbox y sonido.
+          </p>
+        </div>
+
+        <div class="filters" aria-label="Filtrar proyectos">
+          <button class="filter active" type="button" data-filter="all">Todo</button>
+          <button class="filter" type="button" data-filter="web">Web</button>
+          <button class="filter" type="button" data-filter="apps">Apps</button>
+          <button class="filter" type="button" data-filter="games">Games</button>
+          <button class="filter" type="button" data-filter="minecraft">Minecraft</button>
+          <button class="filter" type="button" data-filter="sandbox">Sandbox</button>
+          <button class="filter" type="button" data-filter="sound">Sound</button>
+        </div>
+
+        <div class="project-grid" id="projectGrid"></div>
+      </section>
+
+      <section class="focus" aria-label="Resumen profesional">
+        <article>
+          <span>Especialidad</span>
+          <strong>Webs & apps</strong>
+          <p>Sitios, tiendas, herramientas internas y apps para negocios reales.</p>
+        </article>
+        <article>
+          <span>Gameplay</span>
+          <strong>Juegos & addons</strong>
+          <p>Logica de juego, combate, bosses, quests, entidades custom y addons.</p>
+        </article>
+        <article>
+          <span>Plus</span>
+          <strong>Sound & systems</strong>
+          <p>Produccion musical, sonido, servidores, redes y soporte tecnico.</p>
+        </article>
+      </section>
+
+      <section class="services" id="servicios" aria-labelledby="services-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">servicios</p>
+            <h2 id="services-title">Servicios.</h2>
+          </div>
+          <p class="section-note">
+            Desarrollo piezas concretas para proyectos que necesitan web, software,
+            juegos, audio o soporte tecnico.
+          </p>
+        </div>
+
+        <div class="service-grid">
+          <article>
+            <span>01 / Web</span>
+            <h3>Webs para proyectos</h3>
+            <p>Sitios, portfolios, tiendas livianas y landing pages funcionales con identidad visual.</p>
+            <ul>
+              <li>HTML / CSS / JS</li>
+              <li>Storefronts</li>
+              <li>Editable content</li>
+            </ul>
+          </article>
+          <article>
+            <span>02 / Apps</span>
+            <h3>Apps para negocios</h3>
+            <p>Herramientas de escritorio o celular para gestionar turnos, clientes, ventas, rutinas, servicios o datos internos.</p>
+            <ul>
+              <li>.NET / C#</li>
+              <li>MAUI / mobile</li>
+              <li>Windows Forms</li>
+            </ul>
+          </article>
+          <article>
+            <span>03 / Games</span>
+            <h3>Juegos</h3>
+            <p>Prototipos, logica de juego, combate, progresion, UI funcional y estructuras listas para seguir creciendo.</p>
+            <ul>
+              <li>Lua / Love2D</li>
+              <li>Game systems</li>
+              <li>Game flow</li>
+            </ul>
+          </article>
+          <article>
+            <span>04 / Minecraft</span>
+            <h3>Addons & behavior packs</h3>
+            <p>Entidades custom, bosses, quests, items, mecanicas, scripting y contenido jugable para Bedrock.</p>
+            <ul>
+              <li>Custom AI behaviors</li>
+              <li>Gameplay loops</li>
+              <li>Marketplace-oriented content</li>
+            </ul>
+          </article>
+          <article>
+            <span>05 / Audio</span>
+            <h3>Sonido & musica</h3>
+            <p>Produccion musical, mezcla, sound design y piezas sonoras para juegos, trailers, webs o contenido visual.</p>
+            <ul>
+              <li>Sound design</li>
+              <li>Mix / production</li>
+              <li>Ableton Live</li>
+            </ul>
+          </article>
+          <article>
+            <span>06 / Infra</span>
+            <h3>Redes & servidores</h3>
+            <p>Soporte tecnico para entornos chicos: redes, servidores, pfSense, configuraciones y bases operativas.</p>
+            <ul>
+              <li>pfSense basics</li>
+              <li>Server setup</li>
+              <li>Network support</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="profile" id="perfil" aria-labelledby="profile-title">
+        <div class="section-heading">
+          <p class="eyebrow">perfil</p>
+          <h2 id="profile-title">Desarrollo con criterio tecnico y visual.</h2>
+        </div>
+        <div class="profile-grid">
+          <p>
+            Desarrollo webs, juegos, apps y piezas de sonido combinando
+            programacion, criterio visual y pensamiento tecnico. Tambien
+            tengo base en redes, servidores y pfSense para acompanar proyectos que
+            necesitan algo mas que una interfaz.
+          </p>
+          <ul class="skill-list" aria-label="Especialidades">
+            <li><span>Web</span> Sites / shops / automations</li>
+            <li><span>Apps</span> Desktop / mobile tools</li>
+            <li><span>Games</span> Gameplay scripting</li>
+            <li><span>Minecraft</span> Addons & behaviors</li>
+            <li><span>Sound</span> Music production</li>
+            <li><span>Infra</span> Servers / networks</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="experience" id="experiencia" aria-labelledby="experience-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">experiencia</p>
+            <h2 id="experience-title">Trabajo aplicado en equipos.</h2>
+          </div>
+          <p class="section-note">
+            Experiencia colaborando en juegos, addons, software, apps, soporte tecnico y piezas audiovisuales.
+          </p>
+        </div>
+        <div class="experience-list">
+          <article>
+            <span>Game Developer</span>
+            <strong>555 Comics</strong>
+            <p>Desarrollo de logica de juego, sistemas y soporte tecnico para proyectos jugables.</p>
+          </article>
+          <article>
+            <span>Addon Developer / Trailer Editor</span>
+            <strong>Underblocks</strong>
+            <p>Addons, mecanicas y piezas audiovisuales para comunicar gameplay y features.</p>
+          </article>
+          <article>
+            <span>Addon Developer</span>
+            <strong>Fineblocks</strong>
+            <p>Implementacion de contenido, entidades y sistemas orientados a Minecraft.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="contact" id="contacto" aria-labelledby="contact-title">
+        <p class="eyebrow">contacto</p>
+        <h2 id="contact-title">Disponible para webs, apps, juegos, sonido e infra liviana.</h2>
+        <p class="contact-lead">
+          Si el proyecto necesita desarrollo claro, identidad visual y criterio tecnico,
+          este es el punto de contacto.
+        </p>
+        <div class="availability">
+          <span>open for freelance / collabs</span>
+          <strong>Webs, apps, juegos, Minecraft addons, musica, sonido, redes y servidores</strong>
+        </div>
+        <div class="contact-actions">
+          <a class="button primary" href="mailto:gabiaceved03232@gmail.com">Contactar</a>
+          <span class="email-copyline" aria-label="Email de contacto">
+            <span class="mail-icon" aria-hidden="true"></span>
+            <span class="email-text">gabiaceved03232@gmail.com</span>
+          </span>
+        </div>
+      </section>
+    </main>
+
+    <a class="dev-signature" href="#top" aria-label="Volver al inicio del portfolio">
+      developed by <span>leshuggah</span>
+    </a>
+
+    <script src="script.js"></script>
+  </body>
+</html>
