@@ -188,6 +188,24 @@ h2 {
   line-height: 1.55;
 }
 
+.marker {
+  position: relative;
+  display: inline;
+  color: var(--paper);
+  background:
+    linear-gradient(104deg, transparent 7%, rgba(154, 223, 107, 0.08) 7% 13%, rgba(154, 223, 107, 0.34) 13% 88%, transparent 88%),
+    linear-gradient(180deg, transparent 48%, rgba(232, 226, 211, 0.06) 48% 100%);
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  padding: 0 0.16em 0.02em;
+  text-shadow: 1px 1px 0 rgba(225, 45, 45, 0.46);
+}
+
+.marker::selection {
+  color: var(--ink);
+  background: var(--green);
+}
+
 .hero-actions {
   flex-wrap: wrap;
   gap: 12px;
@@ -343,7 +361,7 @@ h2 {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: clamp(16px, 2vw, 24px);
+  padding: clamp(18px, 2.35vw, 30px);
   color: var(--paper);
   background:
     linear-gradient(140deg, rgba(154, 223, 107, 0.16), transparent 42%),
@@ -367,21 +385,22 @@ h2 {
   position: relative;
   z-index: 2;
   display: block;
-  max-width: 100%;
+  max-width: 8.2ch;
   color: var(--paper);
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
-  font-size: clamp(44px, 5.6vw, 88px);
-  line-height: 0.78;
+  font-size: clamp(34px, 4.35vw, 64px);
+  line-height: 0.9;
   text-shadow: 3px 3px 0 rgba(225, 45, 45, 0.72), -2px -2px 0 rgba(154, 223, 107, 0.32);
   text-transform: uppercase;
-  word-break: break-word;
+  word-break: normal;
+  overflow-wrap: normal;
 }
 
 .tile-minecraft small {
   position: relative;
   z-index: 2;
-  max-width: 24ch;
-  margin-top: 12px;
+  max-width: 22ch;
+  margin-top: 14px;
   color: var(--paper-soft);
   font-size: 11px;
   line-height: 1.35;
@@ -748,6 +767,10 @@ h2 {
   margin-bottom: 28px;
 }
 
+.archive:not(.archive-expanded) .filters {
+  display: none;
+}
+
 .filter {
   color: var(--paper);
   background: rgba(255, 255, 255, 0.035);
@@ -777,6 +800,27 @@ h2 {
 
 .project-card.has-gallery {
   grid-column: span 8;
+}
+
+.archive:not(.archive-expanded) .project-card,
+.archive:not(.archive-expanded) .project-card.featured,
+.archive:not(.archive-expanded) .project-card.has-gallery {
+  grid-column: span 4;
+  min-height: 500px;
+}
+
+.archive:not(.archive-expanded) .project-gallery {
+  display: none;
+}
+
+.archive-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 22px;
+}
+
+.archive-toggle {
+  min-width: min(100%, 250px);
 }
 
 .project-media {
@@ -1040,20 +1084,18 @@ h2 {
   height: 24px;
   flex: 0 0 auto;
   border: 2px solid var(--green);
+  background:
+    linear-gradient(34deg, transparent 47%, var(--green) 49% 53%, transparent 55%),
+    linear-gradient(146deg, transparent 47%, var(--green) 49% 53%, transparent 55%);
+  background-position: 0 -2px, 0 -2px;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
   box-shadow: 4px 4px 0 rgba(225, 45, 45, 0.52);
   animation: mail-float 2.6s ease-in-out infinite;
 }
 
 .mail-icon::before {
-  content: "";
-  position: absolute;
-  left: 7px;
-  top: 2px;
-  width: 16px;
-  height: 16px;
-  border-left: 2px solid var(--green);
-  border-bottom: 2px solid var(--green);
-  transform: rotate(-45deg);
+  content: none;
 }
 
 .mail-icon::after {
@@ -1328,7 +1370,7 @@ h2 {
   }
 
   .tile-minecraft strong {
-    font-size: clamp(48px, 18vw, 78px);
+    font-size: clamp(36px, 13.5vw, 58px);
   }
 
   .tile-code pre {

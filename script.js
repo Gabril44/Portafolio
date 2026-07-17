@@ -27,7 +27,7 @@ const projects = [
     title: "KIWI RPG",
     year: "2026",
     type: "games",
-    role: "Love2D / narrative systems",
+    role: "Love2D / sistemas narrativos",
     featured: true,
     image: "assets/kiwi-menu.png",
     gallery: [
@@ -45,8 +45,8 @@ const projects = [
       }
     ],
     description:
-      "Juego RPG en Lua/Love2D con menu propio, exploracion por mundos, HUD, dialogos, combate con parry/patadas y estructura preparada para seguir creciendo.",
-    tags: ["Lua", "Love2D", "RPG", "Combat", "HUD", "World states"]
+      "Videojuego RPG en Lua/Love2D con menu propio, exploracion por mundos, HUD, dialogos, combate con parry/patadas y estructura preparada para seguir creciendo.",
+    tags: ["Lua", "Love2D", "RPG", "Combate", "HUD", "Estados de mundo"]
   },
   {
     title: "Morrowvale",
@@ -141,7 +141,7 @@ const projects = [
     image: "assets/the-sandbox-reference.svg",
     description:
       "Trabajo en assets, logica y espacios jugables dentro de The Sandbox.",
-    tags: ["Worlds", "Assets", "Game logic", "Level design"],
+    tags: ["Mundos", "Assets", "Logica jugable", "Level design"],
     credit: "Referencia visual: The Sandbox"
   },
   {
@@ -171,7 +171,23 @@ const projects = [
 ];
 
 const projectGrid = document.querySelector("#projectGrid");
+const archiveSection = document.querySelector("#archivo");
+const archiveToggle = document.querySelector("#archiveToggle");
 const filterButtons = document.querySelectorAll(".filter");
+const typeLabels = {
+  web: "web",
+  apps: "apps",
+  games: "videojuegos",
+  minecraft: "minecraft",
+  sandbox: "sandbox",
+  sound: "sonido"
+};
+const highlightPattern = /\b(webs?|sitios web|paginas web|apps?|videojuegos?|juegos?|sonido|audio|software|minecraft|addons?|storefront|tiendas?|desktop|mobile|servidores?|redes)\b/gi;
+let archiveExpanded = false;
+
+function highlightKeywords(text) {
+  return text.replace(highlightPattern, (match) => `<mark class="marker">${match}</mark>`);
+}
 
 function createProjectCard(project) {
   const card = document.createElement("article");
@@ -195,7 +211,7 @@ function createProjectCard(project) {
   card.innerHTML = `
     <div class="project-media">
       <img src="${project.image}" alt="Imagen de ${project.title}">
-      <span class="project-type">${project.type}</span>
+      <span class="project-type">${typeLabels[project.type] || project.type}</span>
       ${project.credit ? `<span class="project-credit">${project.credit}</span>` : ""}
     </div>
     <div class="project-body">
@@ -204,7 +220,7 @@ function createProjectCard(project) {
         <span>${project.role}</span>
       </div>
       <h3>${project.title}</h3>
-      <p>${project.description}</p>
+      <p>${highlightKeywords(project.description)}</p>
       ${galleryMarkup}
       <div class="project-tags">
         ${project.tags.map((tag) => `<span>${tag}</span>`).join("")}
@@ -220,7 +236,8 @@ function renderProjects(activeFilter = "all") {
   projectGrid.innerHTML = "";
 
   projects
-    .filter((project) => activeFilter === "all" || project.type === activeFilter)
+    .filter((project) => archiveExpanded || project.featured)
+    .filter((project) => !archiveExpanded || activeFilter === "all" || project.type === activeFilter)
     .forEach((project) => {
       projectGrid.appendChild(createProjectCard(project));
     });
@@ -230,8 +247,29 @@ filterButtons.forEach((button) => {
   button.addEventListener("click", () => {
     filterButtons.forEach((item) => item.classList.remove("active"));
     button.classList.add("active");
+    archiveExpanded = true;
+    archiveSection.classList.add("archive-expanded");
+    archiveToggle.setAttribute("aria-expanded", "true");
+    archiveToggle.textContent = "Ver menos";
     renderProjects(button.dataset.filter);
   });
+});
+
+archiveToggle.addEventListener("click", () => {
+  archiveExpanded = !archiveExpanded;
+  archiveSection.classList.toggle("archive-expanded", archiveExpanded);
+  archiveToggle.setAttribute("aria-expanded", String(archiveExpanded));
+
+  if (archiveExpanded) {
+    archiveToggle.textContent = "Ver menos";
+    renderProjects(document.querySelector(".filter.active").dataset.filter);
+    return;
+  }
+
+  filterButtons.forEach((item) => item.classList.remove("active"));
+  document.querySelector('[data-filter="all"]').classList.add("active");
+  archiveToggle.textContent = "Ver mas proyectos";
+  renderProjects();
 });
 
 renderProjects();
